@@ -7,6 +7,10 @@ Fortran reference implementation accompanying the paper **“An efficient soluti
 
 The code combines a finite-volume unified gas-kinetic scheme (UGKS) with a Hermite spectral representation of the force term in the Boltzmann–BGK equation. It includes the one- and two-dimensional numerical examples used to study force-driven flows from continuum to rarefied regimes.
 
+## Axisymmetric extension
+
+The 2D executable also provides single-species and five-species axisymmetric modes. See the [axisymmetric quick start](docs/axisymmetric-quickstart.md) for build commands, self-contained examples, and the input and output conventions.
+
 ## Features
 
 - BGK-based UGKS flux with force-modified particle trajectories

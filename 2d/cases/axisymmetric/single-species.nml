@@ -1,0 +1,8 @@
+&axisym
+  nx = 12, nr = 6, length = 0.6, radius = 0.3,
+  nu = 20, ns = 8, na = 6, u_scale = 1.4, u_center = 0.0, s_max = 7.0,
+  gas_r = 287.0, cold_wall = 300.0, aft_wall = 300.0,
+  rho_initial = 0.0003, cfl = 0.45,
+  end_time = 0.000035, average_start = 0.000010,
+  uniform_test = .true., log_stride = 10,
+/

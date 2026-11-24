@@ -24,7 +24,8 @@ endif
 
 # Compile order = module dependency order (each USEs the ones above it).
 SRCS = config data2d grid gastheory2d gravity hermite_symmetric2d velocity boundary flux \
-       initialization solver output2d main
+       initialization solver output2d axisymmetric_kinetic axisymmetric_mesh axisymmetric_internal_modes axisymmetric_mixture_collision \
+       axisymmetric_heat_flux axisymmetric_plume axisymmetric_mixture main
 OBJS = $(addprefix $(SRCDIR)/,$(addsuffix .o,$(SRCS)))
 
 .PHONY: all clean run run5 run6
@@ -38,7 +39,7 @@ $(EXEC): $(OBJS)
 $(OBJS): $(SRCDIR)/.compile.stamp ;
 
 $(SRCDIR)/.compile.stamp: $(addprefix $(SRCDIR)/,$(addsuffix .f90,$(SRCS)))
-	@rm -f $(SRCDIR)/*.o $(SRCDIR)/*.mod
+	@rm -f $(SRCDIR)/*.o $(SRCDIR)/*.mod $(SRCDIR)/*.smod
 	@for f in $(SRCS); do \
 	  echo "  FC  $(SRCDIR)/$$f.f90"; \
 	  $(FC) $(FFLAGS) $(OMPFLAG) $(MODFLAGS) -c $(SRCDIR)/$$f.f90 -o $(SRCDIR)/$$f.o || exit 1; \
@@ -52,5 +53,5 @@ run6: $(EXEC)
 	./$(EXEC) cases/rt_60_fast.namelist
 
 clean:
-	-rm -f $(SRCDIR)/*.o $(SRCDIR)/*.mod $(SRCDIR)/.compile.stamp $(EXEC)
+	-rm -f $(SRCDIR)/*.o $(SRCDIR)/*.mod $(SRCDIR)/*.smod $(SRCDIR)/.compile.stamp $(EXEC)
 # ------------------------------------------------------------

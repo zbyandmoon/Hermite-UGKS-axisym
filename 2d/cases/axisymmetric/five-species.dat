@@ -1,0 +1,6 @@
+# Synthetic uniform-gas example: name molar_mass_g_per_mol mass_fraction diameter_m omega rot_dof rot_probability
+N2  28.013  0.20  3.70e-10  0.75  2  0.2
+H2O 18.016  0.20  3.70e-10  0.75  3  0.2
+CO2 44.011  0.20  3.70e-10  0.75  2  0.2
+CO  28.011  0.20  3.70e-10  0.75  2  0.2
+H2   2.016  0.20  3.70e-10  0.75  2  0.2

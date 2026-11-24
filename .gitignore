@@ -1,0 +1,13 @@
+*.o
+*.obj
+*.mod
+*.smod
+*.exe
+.compile.stamp
+__pycache__/
+/1d/ugks1d
+/2d/ugks2d
+/2d/build/
+/2d/tests/build/
+/runs/
+macro[0-9]*.dat

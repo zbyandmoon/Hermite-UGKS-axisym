@@ -12,8 +12,12 @@ $flags = @(
 $modules = @(
     'config', 'data2d', 'grid', 'gastheory2d', 'gravity',
     'hermite_symmetric2d', 'velocity',
-    'boundary', 'flux', 'initialization', 'solver', 'output2d'
+    'boundary', 'flux', 'initialization', 'solver', 'output2d',
+    'axisymmetric_kinetic', 'axisymmetric_mesh', 'axisymmetric_internal_modes',
+    'axisymmetric_mixture_collision', 'axisymmetric_heat_flux'
 )
+$ringObjects = @('config.o','data2d.o','gastheory2d.o','gravity.o',
+                 'hermite_symmetric2d.o','velocity.o','axisymmetric_kinetic.o')
 
 function Invoke-Fortran {
     param([string[]]$Arguments)
@@ -48,6 +52,30 @@ $tests = @(
         Name = 'test_force_and_ghosts'
         Objects = @('config.o','data2d.o','grid.o','gastheory2d.o','gravity.o',
                     'velocity.o','boundary.o','flux.o')
+    },
+    @{
+        Name = 'test_axisymmetric_mesh'
+        Objects = @('axisymmetric_mesh.o')
+    },
+    @{
+        Name = 'test_half_range_velocity'
+        Objects = $ringObjects
+    },
+    @{
+        Name = 'test_internal_modes'
+        Objects = @('axisymmetric_internal_modes.o')
+    },
+    @{
+        Name = 'test_mixture_collision'
+        Objects = @('axisymmetric_internal_modes.o','axisymmetric_mixture_collision.o')
+    },
+    @{
+        Name = 'test_transport_accuracy'
+        Objects = @('axisymmetric_internal_modes.o','axisymmetric_mixture_collision.o')
+    },
+    @{
+        Name = 'test_thermal_transport'
+        Objects = $ringObjects + @('axisymmetric_heat_flux.o')
     }
 )
 

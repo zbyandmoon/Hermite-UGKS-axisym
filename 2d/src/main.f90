@@ -17,12 +17,13 @@ use GRIDMAKER
 use INITIALIZER
 use SOLVER
 use OUTPUT
+use axisymmetric_plume, only: run_axisymmetric
 implicit none
 INTEGER :: start, finish, rate
 REAL :: elapsed
 integer :: argc
 integer :: i,j
-character(len=64) :: cfgfile
+character(len=512) :: cfgfile
 real(8) :: mass_initial,mass_final,max_u_axis,max_v_axis
 real(8) :: prim_diag(DIM+2)
 logical :: wrote_time2,wrote_time3,wrote_time4
@@ -31,6 +32,12 @@ logical :: wrote_time2,wrote_time3,wrote_time4
 cfgfile = 'input.namelist'
 argc = command_argument_count()
 if (argc >= 1) call get_command_argument(1, cfgfile)
+if (trim(cfgfile) == '--axisymmetric') then
+    if (argc /= 2) error stop 'usage: ugks2d --axisymmetric CASE.nml'
+    call get_command_argument(2, cfgfile)
+    call run_axisymmetric(cfgfile)
+    stop
+end if
 call read_config(cfgfile)
 write(*,*) "UGKS + Hermite 2D solver, case_id =", case_id
 
