@@ -1,6 +1,6 @@
 # 轴对称 Hermite-UGKS 快速入门
 
-本仓库基于 [CFDML/Hermite-UGKS](https://github.com/CFDML/Hermite-UGKS)。同一个二维可执行文件通过 `--axisymmetric` 进入轴对称模式。`species_file` 为空时运行单组分。指定含五行物性的文件时运行五组分。多组分入口也接受一行等效物性，可用于在相同数值选项下做单组分对照。
+同一个二维可执行文件通过 `--axisymmetric` 进入轴对称模式。`species_file` 为空时运行单组分。指定含五行物性的文件时运行五组分。多组分入口也接受一行等效物性，可用于在相同数值选项下做单组分对照。
 
 ## 编译
 

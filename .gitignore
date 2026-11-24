@@ -11,3 +11,5 @@ __pycache__/
 /2d/tests/build/
 /runs/
 macro[0-9]*.dat
+/1d/HERMITE_VALIDATION_REPORT.md
+/2d/VALIDATION.md
