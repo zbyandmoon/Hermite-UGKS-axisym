@@ -1,4 +1,4 @@
-# Hermite-UGKS
+# Hermite-UGKS--Axisymmetric
 
 ## 编译
 
